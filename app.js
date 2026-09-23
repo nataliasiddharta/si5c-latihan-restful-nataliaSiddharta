@@ -5,6 +5,8 @@ const express = require('express');
 	// Middleware agar req.body (JSON) dapat dibaca
 	app.use(express.json());
 	
+	module.exports = app;
+	
 	// Data sementara (disimpan di memori, hilang saat server restart)
 	let mahasiswa = [
 	  { id: 1, nama: 'Andi', jurusan: 'Sistem Informasi' },
@@ -17,6 +19,7 @@ const express = require('express');
 	  res.send('Server Express.js berjalan!');
 	});
 	
+
 	// GET /mahasiswa -> seluruh data, bisa difilter: /mahasiswa?jurusan=Informatika
 	app.get('/mahasiswa', (req, res) => {
 	  const { jurusan } = req.query;
